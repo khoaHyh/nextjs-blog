@@ -1,4 +1,5 @@
-import Layout from '../../components/layout'
+import Layout from '../../components/layout';
+import { getAllPostIds } from '../../lib/posts';
 
 const Post = () => {
   return <Layout>...</Layout>
@@ -6,6 +7,11 @@ const Post = () => {
 
 export const getStaticPaths = async() => {
     // Return a list of possible value for id
+    const paths = getAllPostIds();
+    return {
+        paths,
+        fallback: false
+    }
 }
 
 export const getStaticProps = ({ params }) => {
